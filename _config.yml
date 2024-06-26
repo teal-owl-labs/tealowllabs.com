@@ -11,11 +11,7 @@ title: 'Teal Owl Labs'
 #   desktop_width: "120px"
 
 collections:
-  services:
-    output: true
-    sort_by: weight
-  team:
-    output: true
+
 
 defaults:
   - scope:
@@ -23,11 +19,6 @@ defaults:
       type: ""
     values:
       layout: ""
-  - scope:
-      path: ""
-      type: "team"
-    values:
-      layout: "team"
 
 sass:
   style: compressed # possible values: nested expanded compact compressed
