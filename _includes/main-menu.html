@@ -2,8 +2,8 @@
   {% assign mainmenu = site.data.menus.main | sort: 'weight'  %}
   <ul>
     {% for item in mainmenu %}
-    <li class="{% if item.url == page.url %}active{% endif %}">
-      <a href="{{ item.url | relative_url }}">{{ item.name }}</a>
+    <li>
+      <a href="{{ item.url | absolute_url }}">{{ item.name }}</a>
     </li>
     {% endfor %}
   </ul>

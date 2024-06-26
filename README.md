@@ -28,6 +28,16 @@ Serif is a modern business theme for Jekyll. It contains multiple content types 
 - Robust example content included
 - Royalty free illustrations included
 
+## Run without installation
+
+### Docker 
+
+Run 
+
+```
+docker run -p 4000:4000 -v $(pwd):/site bretfisher/jekyll-serve
+```
+
 ## Installation
 
 ### Installing Ruby & Jekyll

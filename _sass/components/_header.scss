@@ -1,12 +1,18 @@
 .header {
   color: $primary;
-  background-color: #ffffff;
+  background-color: $background;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  // box-shadow: 0 1px 15px rgba(50, 50, 93, 0.2);
-  border-bottom: 1px solid $white-offset;
-  padding: 10px 0px;
+  // box-shadow: 0 1px 10px #004d4d;
+  border-bottom: 2px solid $primary;
+  padding: 15px 0px;
+  .header-title {
+    font-size: 1.7rem;
+    font-family: $font-family-heading;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
   .container {
     display: flex;
     justify-content: space-between;
@@ -25,3 +31,4 @@
     }
   }
 }
+

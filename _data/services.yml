@@ -1,0 +1,13 @@
+services: 
+  - custom-software-solutions:
+    title: Custom Software Development
+    blurb: Unlock your business potential with our bespoke custom software development services. We specialize in creating new applications, integrating systems, and modernizing software with a focus on rigorous testing throughout the development lifecycle. From initial concept to deployment and beyond, our expert team ensures robust development, seamless integration, and comprehensive testing to deliver reliable solutions that drive your business growth.
+  - software-design-review:
+    title: Software Architecture Design Review
+    blurb: Ensure your software is built on a solid foundation with our comprehensive architecture design review service. Our experienced team analyzes your system to identify issues, optimize performance, and enhance scalability. Get actionable insights and recommendations to create robust, efficient, and future-proof software solutions.
+  - software-process-improvement:
+    title: Process Improvement
+    blurb: Streamline and optimize your software development process with our expert improvement services. From implementing robust CI/CD pipelines to setting up effective monitoring and alerting systems and beyond, our team helps you adopt best practices that increase efficiency, reduce errors, and ensure seamless software delivery.
+  - usability-testing:
+    title: Usability Testing
+    blurb: Ensure your software products meet user expectations with our comprehensive usability testing services. Our experienced team conducts rigorous testing to identify usability issues, including general workflow, accessibility, and security testing. From initial prototypes to final releases, we provide actionable insights to enhance usability, boost customer satisfaction, and drive product success.
