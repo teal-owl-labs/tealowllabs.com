@@ -1,4 +1,5 @@
-baseurl: '/'
+baseurl: ''
+url: 'https://tealowllabs.com/'
 permalink: pretty
 title: 'Teal Owl Labs'
 
