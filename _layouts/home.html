@@ -6,9 +6,9 @@ bodyClass: "page-home"
 <div class="intro">
   <div class="container">
     <div class="row justify-content-start">
-      <div class="col-12 col-md-7 col-lg-6 order-2 order-md-1">
+      <div class="col-12 col-md-10 col-lg-6 order-2 order-md-1">
         {{ content }}
-        <div class="">
+        <div class="pt-4">
           <a id="get-started-link" href="/contact">
             Let's Talk
           </a>
@@ -26,28 +26,64 @@ bodyClass: "page-home"
 </div>
 
 
-
-<section id="services" class="anchor pt-4">
-  <div class="strip strip-grey">
-    <div class="p-1">
-      <h2 id="section-break">How can we help you?</h2>
-    </div>
-    <div class="container pt-4 pb-4 pb-md-4">
-      <div class="row justify-content-start">
-        {% assign services = site.data.services.services %}
-        {% for service in services %}
-        <div class="col-12 col-md-6 mb-1">
-          <div class="service service-summary">
-            <div class="service-content">
-              <h3 class="service-title">
-                {{ service.title }}
-              </h3>
-              <p>{{ service.blurb | markdownify | strip_html }}</p>
+<div id="sections">
+  <section id="services" class="anchor pt-4">
+    <div class="strip strip-grey pb-4">
+      <div class="p-1">
+        <h2 id="section-break">How can we help you?</h2>
+      </div>
+        <div class="container">
+          <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            {% assign services = site.data.services.services %}
+            {% for service in services %}
+            <div class="col">
+              <div class="service service-summary">
+                <div class="service-content">
+                  <h3 class="service-title">
+                    <a href="{{service.url}}">
+                      {{ service.title }}
+                    </a>
+                  </h3>
+                  <p>{{ service.blurb | markdownify | strip_html }}</p>
+                </div>
+              </div>
             </div>
+            {% endfor %}
           </div>
         </div>
-        {% endfor %}
+      </div>
+  </section>
+
+  <section id="casestudies" class="anchor">
+    <div class="strip strip-neutral">
+      <div class="p-1">
+        <h2 id="section-break">Check out some of our recent work</h2>
+      </div>
+      <div class="container">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 container">
+          {% for casestudy in site.casestudies limit:3 %}
+          <div class="col-12 col-md-6 mb-3 h-100 col">
+            <div class="casestudy casestudy-summary">
+              <a href="{{ casestudy.url | relative_url }}">
+                <div class="casestudy-content">
+                  <div class="position-relative mb-3">
+                    <img class="cs-image" width="450" height="250" alt="{{ casestudy.image_alt }}"
+                      src="https://images-cdn.openxcell.com/wp-content/uploads/2024/08/14154526/orderhive.webp" />
+                  </div>
+                  {% for tag in casestudy.tags %}
+                  <span class="tag">{{ tag }}</span>
+                  {% endfor %}
+                  <h2 class="casestudy-title">
+                    {{ casestudy.title }}
+                  </h2>
+                  <p>{{ casestudy.snippet | markdownify | strip_html | truncate: 100 }}</p>
+                </div>
+              </a>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+</div>

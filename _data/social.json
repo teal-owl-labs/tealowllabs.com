@@ -1,5 +1,15 @@
 [
   {
+    "name": "Twitter",
+    "link": "https://twitter.com/tealowllabs",
+    "image": "images/social/twitter.svg"
+  },
+  {
+    "name": "LinkedIn",
+    "link": "https://www.linkedin.com/company/teal-owl-labs/",
+    "image": "images/social/linkedin.svg"
+  },
+  {
     "name": "Github",
     "link": "https://github.com/teal-owl-labs",
     "image": "images/social/github.svg"

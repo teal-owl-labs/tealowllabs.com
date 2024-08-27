@@ -1,25 +1,40 @@
-baseurl: ''
-url: 'https://tealowllabs.com'
+baseurl: ""
+url: "https://tealowllabs.com"
 permalink: pretty
-title: 'Teal Owl Labs'
+title: "Teal Owl Labs"
 
-# logo:
-#   mobile: "images/logo/logo-mobile.svg"
-#   mobile_height: "32px"
-#   mobile_width: "32px"
-#   desktop: "images/logo/logo.svg"
-#   desktop_height: "32px"
-#   desktop_width: "120px"
+logo:
+  mobile: "images/logo.svg"
+  mobile_height: "32px"
+  mobile_width: "32px"
+  desktop: "images/logo.svg"
+  desktop_height: "32px"
+  desktop_width: "120px"
 
 collections:
-
+  casestudies:
+    output: true
+  blog:
+    output: true
+  services:
+    output: true
 
 defaults:
   - scope:
-      path: "#services"
-      type: ""
+      path: ""
+      type: "casestudies"
     values:
-      layout: ""
+      layout: "casestudies"
+  - scope:
+      path: ""
+      type: "blog"
+    values:
+      layout: "blog"
+  - scope:
+      path: ""
+      type: "services"
+    values:
+      layout: "services"
 
 sass:
   style: compressed # possible values: nested expanded compact compressed

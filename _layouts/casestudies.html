@@ -1,0 +1,55 @@
+---
+layout: default
+bodyClass: "page-casestudies"
+---
+
+<div class="intro">
+  <div class="container">
+    <div class="row justify-content-start">
+      <div class="col-12 col-md-7 col-lg-6 order-2 order-md-1">
+        {{ content }}
+        <!-- <div class="pt-4">
+          <a id="get-started-link" href="/contact">
+            Let's Talk
+          </a>
+        </div> -->
+      </div>
+      {% if page.intro_image %}
+      <div class="col-12 col-md-5 col-lg-6 order-1 order-md-2 position-relative">
+        <img alt="{{ page.title }}" class="intro-image{% if page.intro_image_absolute %} intro-image-absolute{% endif %}{% if page.intro_image_hide_on_mobile %} intro-image-hide-mobile{% endif %}" src="{{ page.intro_image | relative_url }}" />
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<section id="casestudies" class="anchor pt-4 mt-4">
+  <div class="strip strip-grey pb-10">
+    <div class="container">
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 container">
+        {% for casestudy in site.casestudies %}
+        <div class="col-12 col-md-6 mb-3 h-100 col">
+          <div class="casestudy casestudy-summary">
+            <a href="{{ casestudy.url | relative_url }}">
+              <div class="casestudy-content">
+                <div class="position-relative mb-3">
+                  <img class="cs-image" width="450" height="250" alt="{{ casestudy.image_alt }}"
+                    src="https://images-cdn.openxcell.com/wp-content/uploads/2024/08/14154526/orderhive.webp" />
+                </div>
+                {% for tag in casestudy.tags %}
+                  <span class="tag">{{ tag }}</span>
+                {% endfor %}
+                <h2 class="casestudy-title">
+                    {{ casestudy.title }}
+                </h2>
+                <p>{{ casestudy.snippet | markdownify | strip_html | truncate: 100 }}</p>
+              </div>
+            </a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  </div>
+</section>

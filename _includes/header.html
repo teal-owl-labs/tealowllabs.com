@@ -1,7 +1,14 @@
-<div class="header">
+<div class="header pt-4">
   <div class="container">
-    <div class="header-title">
-      <a href="/">Teal Owl Labs</a>
+    <div>
+      <div class="logo">
+        <a href="/">
+          <img width="{{ site.logo.desktop_width }}" height="{{ site.logo.desktop_height }}" alt="Teal Owl Labs" src="/images/logo.svg" class="img-fluid w-50"/>
+        </a>
+      </div>
+      <div class="logo-mobile">
+        <a href="/"><img width="{{ site.logo.mobile_width }}" height="{{ site.logo.mobile_height }}" alt="Teal Owl Labs" src="/images/logo.svg" /></a>
+      </div>
     </div>
     {% include main-menu.html %}
     {% include hamburger.html %}

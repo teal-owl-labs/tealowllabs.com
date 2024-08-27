@@ -12,25 +12,31 @@ bodyClass: "page-contact"
                 <form method="POST" id="form" action="https://api.web3forms.com/submit">
                     <!-- uncomment when we create thank you page -->
                     <!-- <input type="hidden" name="redirect" value="https://tealowllabs.com/thanks.html" /> -->
-                    <input type="hidden" name="access_key" value="cb8d06e1-a0b5-4d55-9672-bd3b0d5c099c" />
+                    <input type="hidden" name="access_key" value="09f85d1d-5027-42e3-b422-581646412fea"/>
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
                     <div class="mb-3">
                       <label for="name" class="form-label">Name</label>
-                      <input type="text" name="name" class="form-control" id="name">
+                      <input type="text" name="name" class="form-control" id="name" required>
                     </div>
                     <div class="mb-3">
-                      <label for="email" class="form-label">Email address</label>
-                      <input type="email" name="email" class="form-control" id="email">
+                        <label for="company" class="form-label">Company name</label>
+                        <input type="text" name="company" class="form-control" id="company" required>
                     </div>
                     <div class="mb-3">
-                      <label for="message" class="form-label">Message</label>
-                      <textarea class="form-control" name="message" id="message" rows="3"></textarea>
+                        <label for="email" class="form-label">Email address</label>
+                        <input type="email" name="email" class="form-control" id="email" required>
                     </div>
-                    <div class="h-captcha" data-captcha="true"></div>
+                    <div class="mb-3">
+                      <label for="phone" class="form-label">Phone number</label>
+                      <input type="tel" name="phone" class="form-control" id="phone" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="message" class="form-label">Project description</label>
+                      <textarea class="form-control" name="message" id="message" rows="3" required></textarea>
+                    </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                   </form>
 
-                  <script src="https://web3forms.com/client/script.js" async defer></script>
-                  
                   <div id="result"></div>
                   
                   <script>
@@ -69,16 +75,11 @@ bodyClass: "page-contact"
                                     console.log(response);
                                     result.innerHTML = json.message;
                                 }
+                                form.reset();
                             })
                             .catch(error => {
                                 console.log(error);
                                 result.innerHTML = "Something went wrong!";
-                            })
-                            .then(function() {
-                                form.reset();
-                                setTimeout(() => {
-                                    result.style.display = "none";
-                                }, 3000);
                             });
                     });
                   </script>
