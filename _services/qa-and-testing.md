@@ -5,6 +5,5 @@ blurb: Ensure your software's reliability with comprehensive manual and automate
 image: /images/footer_logo.svg
 image_alt: this is the alt text for this image
 highlevel: true
+done: true
 ---
-
-a
