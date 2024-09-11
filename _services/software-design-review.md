@@ -5,5 +5,4 @@ blurb: Evaluate and optimize your software architecture and design for improved 
 image: /images/footer_logo.svg
 image_alt: this is the alt text for this image
 highlevel: true
-done: true
 ---
