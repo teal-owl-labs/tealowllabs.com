@@ -34,20 +34,21 @@ bodyClass: "page-home"
       </div>
         <div class="container">
           <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-            {% assign services = site.data.services.services %}
-            {% for service in services %}
-            <div class="col">
-              <div class="service service-summary">
-                <div class="service-content">
-                  <h3 class="service-title">
-                    <a href="{{service.url}}">
-                      {{ service.title }}
-                    </a>
-                  </h3>
-                  <p>{{ service.blurb | markdownify | strip_html }}</p>
+            {% for service in site.services %}
+              {% if service.highlevel %}
+                <div class="col">
+                  <div class="service service-summary">
+                    <div class="service-content">
+                      <h3 class="service-title">
+                        <a href="{{service.url}}">
+                          {{ service.title }}
+                        </a>
+                      </h3>
+                      <p>{{ service.blurb | markdownify | strip_html }}</p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
+              {% endif %}
             {% endfor %}
           </div>
         </div>
@@ -77,6 +78,39 @@ bodyClass: "page-home"
                     {{ casestudy.title }}
                   </h2>
                   <p>{{ casestudy.snippet | markdownify | strip_html | truncate: 100 }}</p>
+                </div>
+              </a>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="blogs" class="anchor">
+    <div class="strip strip-grey">
+      <div class="p-1">
+        <h2 id="section-break">Our writings ???</h2>
+      </div>
+      <div class="container">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 container">
+          {% for blog in site.blog limit:3 %}
+          <div class="col-12 col-md-6 mb-3 h-100 col">
+            <div class="blog blog-summary">
+              <a href="{{ blog.url | relative_url }}">
+                <div class="blog-content">
+                  <div class="position-relative mb-3">
+                    <img class="cs-image" width="450" height="250" alt="{{ blog.image_alt }}"
+                      src="https://images-cdn.openxcell.com/wp-content/uploads/2024/08/14154526/orderhive.webp" />
+                  </div>
+                  {% for tag in blog.tags %}
+                  <span class="tag">{{ tag }}</span>
+                  {% endfor %}
+                  <h2 class="blog-title">
+                    {{ blog.title }}
+                  </h2>
+                  <p>{{ blog.snippet | markdownify | strip_html | truncate: 100 }}</p>
                 </div>
               </a>
             </div>

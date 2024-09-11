@@ -1,10 +1,9 @@
 ---
-title: food
+title: CI/CD Pipeline Improvements
 date: 2018-11-18T12:33:46+10:00
-snippet: This is a blog post
+blurb: No blurb yet
 image: /images/footer_logo.svg
 image_alt: this is the alt text for this image
-tags: [a, b, c, def]
+subservice: process
 ---
 
-a
