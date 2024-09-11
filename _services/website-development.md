@@ -5,5 +5,6 @@ blurb: Create responsive, user-friendly websites that align with your brand and 
 image: /images/footer_logo.svg
 image_alt: this is the alt text for this image
 highlevel: true
+higherlevel_name: website
 ---
 
