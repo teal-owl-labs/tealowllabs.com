@@ -6,5 +6,3 @@ image: /images/footer_logo.svg
 image_alt: this is the alt text for this image
 highlevel: true
 ---
-
-a
