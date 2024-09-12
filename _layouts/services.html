@@ -8,11 +8,6 @@ bodyClass: "page-services"
     <div class="row justify-content-start">
       <div class="col-12 col-md-7 col-lg-6 order-2 order-md-1">
         {{ content }}
-        <!-- <div class="pt-4">
-          <a id="get-started-link" href="/contact">
-            Let's Talkasdasd
-          </a>
-        </div> -->
       </div>
       {% if page.intro_image %}
       <div class="col-12 col-md-5 col-lg-6 order-1 order-md-2 position-relative">
@@ -26,34 +21,25 @@ bodyClass: "page-services"
 </div>
 
 <section id="services" class="anchor pt-4 mt-4">
-  <div class="strip strip-grey pb-10">
-    <div class="container">
-      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 container">
-        {% for services in site.services %}
-        {% if services.subservice == page.higherlevel_name %}
-        <div class="col-12 col-md-6 mb-3 h-100 col">
-          <div class="services services-summary">
-            <a href="{{ services.url | relative_url }}">
-              <div class="services-content">
-                <div class="position-relative mb-3">
-                  <img class="cs-image" width="450" height="250" alt="{{ services.image_alt }}"
-                    src="https://images-cdn.openxcell.com/wp-content/uploads/2024/08/14154526/orderhive.webp" />
-                </div>
-                <!-- {% for tag in services.tags %}
-                <span class="tag">{{ tag }}</span>
-                {% endfor %} -->
-                <h2 class="services-title">
-                  {{ services.title }}
-                </h2>
-                <p>{{ services.snippet | markdownify | strip_html | truncate: 100 }}</p>
+  {% for services in site.services %}
+    <div class="strip {% cycle 'strip-grey', 'strip-neutral' %} pb-10">
+      <div class="container">
+        <div class="row g-4">
+          <h2>
+            {{ services.title }}
+          </h2>
+          <div class="container row row-cols-1 row-cols-md-2">
+            {% assign serviceGroup = site.data.service.services[services.higherlevel_name] %}
+            {% for service in serviceGroup %}
+              <div class="col-12 col-md-6 mb-3 h-100 col">
+                <h3>{{ service.name }}</h3>
+                <p>{{ service.blurb }}</p>
               </div>
-            </a>
+            {% endfor %}
           </div>
         </div>
-        {% endif %}
-        {% endfor %}
       </div>
     </div>
-  </div>
-  </div>
+  {% endfor %}
 </section>
+
