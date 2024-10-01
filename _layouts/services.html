@@ -20,6 +20,8 @@ bodyClass: "page-services"
   </div>
 </div>
 
+{% unless page.higherlevel_name %} 
+<!-- default services page -->
 <section id="services" class="anchor pt-4 mt-4">
   {% for services in site.services %}
     <div class="strip {% cycle 'strip-grey', 'strip-neutral' %} pb-10">
@@ -31,7 +33,7 @@ bodyClass: "page-services"
           <div class="container row row-cols-1 row-cols-md-2">
             {% assign serviceGroup = site.data.service.services[services.higherlevel_name] %}
             {% for service in serviceGroup %}
-              <div class="col-12 col-md-6 mb-3 h-100 col">
+              <div class="col-12 col-md-6 mb-3 col">
                 <h3>{{ service.name }}</h3>
                 <p>{{ service.blurb }}</p>
               </div>
@@ -42,4 +44,24 @@ bodyClass: "page-services"
     </div>
   {% endfor %}
 </section>
+{% else %}
+<!-- individual higher level services page -->
+<section id="services" class="anchor pt-4 mt-4">
+  <div class="strip strip-grey pb-10">
+    <div class="container">
+      <div class="row g-4">
+        <div class="container row row-cols-1 row-cols-md-2">
+          {% assign serviceGroup = site.data.service.services[page.higherlevel_name] %}
+          {% for service in serviceGroup %}
+            <div class="col-12 col-md-6 mb-3 col">
+              <h3>{{ service.name }}</h3>
+              <p>{{ service.blurb }}</p>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endunless %}
 
