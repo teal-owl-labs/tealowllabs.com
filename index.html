@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teal Owl Labs | Enterprise Modernization & Observability</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Navy Blue Color Scheme */
+        :root {
+            --primary: #008080;       /* Teal accent */
+            --navy: #0A1A2F;          /* Primary navy */
+            --dark-navy: #081223;     /* Darker navy */
+            --slate: #2D3748;         /* Secondary color */
+            --light: #F7FAFC;         /* Light text */
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--navy);
+            color: var(--light);
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Navigation */
+        header {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--slate);
+            position: relative;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            padding: 0.7rem 1.2rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+
+        .nav-links a:hover {
+            background: rgba(0,128,128,0.1);
+            color: var(--primary);
+        }
+
+        /* Mobile Menu */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light);
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 8rem 0;
+            text-align: center;
+            background: linear-gradient(to bottom right, var(--dark-navy), var(--navy));
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 1.8rem;
+            line-height: 1.2;
+            color: var(--primary);
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+        }
+
+        .trust-badges {
+            margin-top: 4rem;
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+
+        /* Services Section */
+        .pain-points {
+            padding: 6rem 0;
+            background: var(--dark-navy);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .card {
+            background: var(--slate);
+            padding: 2.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--primary);
+        }
+
+        .card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1.2rem;
+            color: var(--primary);
+        }
+
+        /* Results Section */
+        .results {
+            padding: 6rem 0;
+            text-align: center;
+            background: var(--navy);
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 5rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .number {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+            margin-bottom: 0.8rem;
+        }
+
+        /* Contact Form */
+        .contact-section {
+            padding: 6rem 0;
+            background: var(--dark-navy);
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 2.5rem;
+            background: var(--slate);
+            border-radius: 8px;
+            border: 1px solid var(--primary);
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 1.1rem;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--primary);
+            border-radius: 4px;
+            color: var(--light);
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        /* CTA Button */
+        .cta {
+            display: inline-block;
+            background: var(--primary);
+            color: var(--light);
+            padding: 1.2rem 2.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cta:hover {
+            background: #006666;
+            transform: translateY(-2px);
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            body {
+                font-size: 16px;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--dark-navy);
+                padding: 1.5rem;
+                flex-direction: column;
+                gap: 1.5rem;
+                text-align: center;
+                border-bottom: 1px solid var(--slate);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+
+            .card {
+                padding: 1.8rem;
+            }
+
+            .stats {
+                gap: 3rem;
+            }
+
+            .number {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Teal Owl Labs</div>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links" id="navLinks">
+                <a href="#services">Services</a>
+                <!-- <a href="#results">Results</a> -->
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Future-proof your tech stack. <br><span>Stop fighting fires.</span></h1>
+            <p>Modernize legacy systems, eliminate downtime, and transform observability chaos into actionable insights</p>
+            <a href="#contact" class="cta">Get Free Modernization Plan</a>
+            <div class="trust-badges">
+                <span>8 years enterprise experience</span>
+                <span>67% avg. cost reduction</span>
+                <span>Zero disruption guarantee</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="pain-points" id="services">
+        <div class="container">
+            <h2>You're here because...</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Legacy systems keep you awake</h3>
+                    <p>We modernize monoliths to cloud-native architectures without business disruption or surprise downtime.</p>
+                </div>
+                <div class="card">
+                    <h3>Production feels like flying blind</h3>
+                    <p>Implement observability stacks that predict outages before customers notice them.</p>
+                </div>
+                <div class="card">
+                    <h3>Cloud bills are out of control</h3>
+                    <p>Slash logging costs by 40%+ with smarter architectures and OpenTelemetry pipelines.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- <section class="results" id="results">
+        <div class="container">
+            <h2>Recent Results</h2>
+            <div class="stats">
+                <div class="stat">
+                    <span class="number">$28k → $9k</span>
+                    <span class="label">Monthly logging costs saved</span>
+                </div>
+                <div class="stat">
+                    <span class="number">70%</span>
+                    <span class="label">Faster incident resolution</span>
+                </div>
+                <div class="stat">
+                    <span class="number">6 mos.</span>
+                    <span class="label">Legacy system modernized</span>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <h2 style="text-align: center;padding-bottom: 2rem;">Let's Fix Your Systems</h2>
+            <form method="POST" class="contact-form" id="contactForm" action="https://api.web3forms.com/submit">
+                <input type="hidden" name="access_key" value="09f85d1d-5027-42e3-b422-581646412fea"/>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">How can we help?</label>
+                    <textarea id="message" rows="5" required></textarea>
+                </div>
+
+                <button type="submit" class="cta" style="width: 100%">Send Message</button>
+            </form>
+
+            <div id="result"></div>
+        </div>
+    </section>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            navLinks.classList.toggle('active');
+            menuToggle.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+                navLinks.classList.remove('active');
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu after click
+                if (window.innerWidth <= 768) {
+                    navLinks.classList.remove('active');
+                    menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
+        });
+
+        window.onload = function() {
+            // Reset the form fields when the page loads
+            document.getElementById("contactForm").reset();
+        };
+        
+        // delete all below when we have thank you page
+        const form = document.getElementById('contactForm');
+        const result = document.getElementById('result');
+        
+        form.addEventListener('submit', function(e) {
+            debugger;
+            e.preventDefault();
+
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                message: document.getElementById('message').value,
+                access_key: document.querySelector('input[name="access_key"]').value
+            };
+        
+            const json = JSON.stringify(formData);
+        
+            result.innerHTML = "Please wait..."
+        
+            fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: json
+                })
+                .then(async (response) => {
+                    let json = await response.json();
+                    if (response.status === 200) {
+                        result.innerHTML = json.message;
+                    } else {
+                        console.log(response);
+                        result.innerHTML = json.message;
+                    }
+                    form.reset();
+                })
+                .catch(error => {
+                    console.log(error);
+                    result.innerHTML = "Something went wrong!";
+                });
+        });
+    </script>
+</body>
+</html>
